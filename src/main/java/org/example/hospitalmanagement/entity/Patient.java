@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Setter
 @Getter
 @Entity
@@ -23,6 +25,9 @@ public class Patient {
         this.age = age;
         this.reason = reason;
     }
+
+    @OneToMany(mappedBy = "patient")
+    private List<Appointment> appointments;
 
 
 }

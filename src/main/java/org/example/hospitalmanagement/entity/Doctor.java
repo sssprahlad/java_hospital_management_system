@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +20,6 @@ public class Doctor {
     private String name;
     private String specialization;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
+    @OneToMany(mappedBy = "doctor")
+    private List<Appointment> appointments;
 }
