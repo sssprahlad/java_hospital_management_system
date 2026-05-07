@@ -16,7 +16,10 @@ public class AppointmentController {
     }
 
     @PostMapping("/book")
-    public Appointment bookingAppoint(@RequestParam Long patientId, @RequestParam Long doctorId, @RequestBody Appointment appointment){
+    public Appointment bookingAppoint(
+            @RequestParam Long patientId,
+            @RequestParam Long doctorId,
+            @RequestBody Appointment appointment){
         return appointmentService.bookingAppointment(patientId, doctorId, appointment);
     }
 

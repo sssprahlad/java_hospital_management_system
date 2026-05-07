@@ -17,4 +17,8 @@ public class Doctor {
     private Long id;
     private String name;
     private String specialization;
+
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
 }
