@@ -23,9 +23,33 @@ public class AppointmentController {
         return appointmentService.bookingAppointment(patientId, doctorId, appointment);
     }
 
-    @GetMapping
+    @GetMapping("/book")
     public List<Appointment> getAllAppointments(){
         return  appointmentService.getAllAppointments();
+    }
+
+    @GetMapping("/book/{id}")
+    public Appointment getAppointmentById(@PathVariable Long id){
+        return appointmentService.getAppointmentById(id);
+    }
+
+
+    @PatchMapping("/book/{id}")
+    public Appointment updateAppointment(
+            @PathVariable Long id,
+            @RequestParam Long patientId,
+            @RequestParam Long doctorId,
+            @RequestBody Appointment appointment
+    ){
+        return appointmentService.updateAppointment(id, patientId,doctorId, appointment);
+    }
+
+    @DeleteMapping("/book/{id}")
+    public String deleteByAppointment(@PathVariable Long id){
+        appointmentService.deleteByAppointment(id);
+
+        return "Appointment deleted Successfully.";
+
     }
 
 

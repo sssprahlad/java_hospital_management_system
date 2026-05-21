@@ -1,5 +1,6 @@
 package org.example.hospitalmanagement.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +28,7 @@ public class Patient {
     }
 
     @OneToMany(mappedBy = "patient")
+    @JsonIgnore
     private List<Appointment> appointments;
 
 
